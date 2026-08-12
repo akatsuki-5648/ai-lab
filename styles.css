@@ -28,6 +28,27 @@ body.context-site {
   color: var(--ink);
   isolation: isolate;
 }
+
+.footer-notes {
+  display: grid;
+  gap: 6px;
+  margin-top: clamp(48px, 5vw, 70px);
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.52);
+  font-size: clamp(11px, 0.75vw, 12px);
+  line-height: 1.8;
+  letter-spacing: 0.02em;
+}
+.footer-notes p {
+  max-width: 88ch;
+  margin: 0;
+}
+.footer-fine {
+  justify-content: center;
+  margin-top: 26px;
+  text-align: center;
+}
 body.context-site::before {
   display: none;
 }
