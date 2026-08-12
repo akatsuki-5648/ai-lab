@@ -1,0 +1,278 @@
+/* できること — INPUTを実物へ変える黒い制作台。 */
+body.page-capabilities {
+  --build-lime: #dfff43;
+  --build-ink: #080a08;
+  --build-panel: #121712;
+  --build-line: rgba(223, 255, 67, 0.28);
+  background: var(--build-ink);
+  color: #f7f9ef;
+}
+
+body.page-capabilities .context-canvas {
+  opacity: 0.28;
+  filter: hue-rotate(44deg) saturate(1.5);
+}
+
+body.page-capabilities .site-header {
+  top: 0;
+  min-height: 70px;
+  padding: 0 var(--pad);
+  border: 0;
+  border-bottom: 2px solid var(--build-lime);
+  background: rgba(8, 10, 8, 0.94);
+  color: #fff;
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.34);
+}
+
+body.page-capabilities .brand {
+  color: var(--build-lime);
+  font-family: var(--mono);
+}
+
+body.page-capabilities .brand::before {
+  content: "> ";
+  color: #fff;
+}
+
+body.page-capabilities .brand::after {
+  content: "BUILD_CONSOLE";
+  margin-left: 12px;
+  color: rgba(255, 255, 255, 0.48);
+  font: 700 9px/1 var(--mono);
+  letter-spacing: 0.12em;
+}
+
+body.page-capabilities .brand-dot {
+  display: none;
+}
+
+body.page-capabilities .nav {
+  gap: 2px;
+  padding: 5px;
+  border: 1px solid var(--build-line);
+  background: #0d110d;
+}
+
+body.page-capabilities .nav a {
+  padding: 8px 10px;
+  color: #fff;
+  font-family: var(--mono);
+  font-size: 10px;
+  text-transform: uppercase;
+}
+
+body.page-capabilities .nav a[aria-current="page"] {
+  background: var(--build-lime);
+  color: #080a08;
+  opacity: 1;
+}
+
+body.page-capabilities .header-join {
+  padding: 11px 15px;
+  border: 1px solid var(--build-lime);
+  background: transparent;
+  color: var(--build-lime);
+  font-family: var(--mono);
+}
+
+body.page-capabilities .hero-workbench {
+  min-height: 100svh;
+  background: linear-gradient(
+    90deg,
+    #080a08 0 62%,
+    var(--build-lime) 62%
+  ) !important;
+}
+
+body.page-capabilities .hero-workbench-shell {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(360px, 0.95fr);
+  gap: 6vw;
+  align-items: center;
+}
+
+body.page-capabilities .hero-workbench-copy {
+  position: relative;
+  z-index: 5;
+}
+
+body.page-capabilities .hero-workbench h1 {
+  max-width: 860px;
+  font-family: var(--sans);
+  font-weight: 950;
+  color: #fff;
+  text-shadow: 0 0 45px rgba(223, 255, 67, 0.12);
+}
+
+body.page-capabilities .hero-workbench .serif {
+  color: var(--build-lime) !important;
+  font-family: var(--mono);
+}
+
+body.page-capabilities .hero-workbench .page-visual {
+  right: 0;
+  width: 42%;
+  clip-path: none;
+  opacity: 0.14;
+  filter: grayscale(1) contrast(1.4);
+  mix-blend-mode: multiply;
+}
+
+body.page-capabilities .hero-workbench .page-visual::after {
+  background: linear-gradient(90deg, #080a08 0, transparent 58%);
+}
+
+body.page-capabilities .hero-build-output {
+  position: relative;
+  z-index: 6;
+  padding: 28px;
+  border: 2px solid #080a08;
+  background: #0d110d;
+  color: #fff;
+  box-shadow: 22px 22px 0 rgba(8, 10, 8, 0.2);
+}
+
+body.page-capabilities .hero-build-output > div {
+  padding: 18px 0;
+  border-bottom: 1px solid var(--build-line);
+}
+
+body.page-capabilities .hero-build-output span,
+body.page-capabilities .hero-build-output li::before {
+  color: var(--build-lime);
+  font-family: var(--mono);
+}
+
+body.page-capabilities .section {
+  border-color: var(--build-line);
+  background: var(--build-ink);
+  color: #fff;
+}
+
+body.page-capabilities .section-label,
+body.page-capabilities .intro p {
+  color: rgba(255, 255, 255, 0.58);
+}
+
+body.page-capabilities .capability-stack {
+  counter-reset: capability;
+  border-top: 1px solid var(--build-line);
+}
+
+body.page-capabilities .capability-chapter {
+  counter-increment: capability;
+  position: relative;
+  padding: clamp(34px, 5vw, 72px);
+  border: 0;
+  border-bottom: 1px solid var(--build-line);
+  background: var(--build-panel);
+  color: #fff;
+}
+
+body.page-capabilities .capability-chapter:nth-child(even) {
+  margin-left: 8vw;
+  background: #0c0f0c;
+}
+
+body.page-capabilities .capability-chapter::before {
+  content: "MODULE / 0" counter(capability);
+  display: block;
+  margin-bottom: 24px;
+  color: var(--build-lime);
+  font: 800 10px/1 var(--mono);
+  letter-spacing: 0.18em;
+}
+
+body.page-capabilities .capability-chapter::after {
+  color: rgba(223, 255, 67, 0.06);
+}
+
+body.page-capabilities .capability-chapter li {
+  border: 1px solid var(--build-line);
+  background: rgba(223, 255, 67, 0.04);
+  color: #fff;
+}
+
+body.page-capabilities .manifesto {
+  background: var(--build-lime);
+  color: #080a08;
+}
+
+body.page-capabilities .manifesto .section-label,
+body.page-capabilities .manifesto p {
+  color: #080a08;
+}
+
+body.page-capabilities .pill {
+  border-color: var(--build-lime);
+  color: var(--build-lime);
+}
+
+body.page-capabilities .pill.primary {
+  background: #080a08;
+  color: var(--build-lime);
+}
+
+body.page-capabilities .site-footer {
+  border-top: 2px solid var(--build-lime);
+  background: #050605;
+  color: #fff;
+}
+
+body.page-capabilities .footer-lead h2 i {
+  color: var(--build-lime);
+}
+
+@media (max-width: 980px) {
+  body.page-capabilities .nav {
+    border: 0;
+    background: #080a08;
+  }
+
+  body.page-capabilities .nav a {
+    font-family: var(--sans);
+    font-size: clamp(30px, 8vw, 54px);
+  }
+
+  body.page-capabilities .hero-workbench-shell {
+    grid-template-columns: 1fr 0.82fr;
+  }
+}
+
+@media (max-width: 600px) {
+  body.page-capabilities .brand::after {
+    display: none;
+  }
+
+  body.page-capabilities .hero-workbench {
+    background: linear-gradient(
+      180deg,
+      #080a08 0 72%,
+      var(--build-lime) 72%
+    ) !important;
+  }
+
+  body.page-capabilities .hero-workbench-shell {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+
+  body.page-capabilities .hero-build-output {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    padding: 14px;
+    box-shadow: 10px 10px 0 rgba(8, 10, 8, 0.18);
+  }
+
+  body.page-capabilities .hero-build-output ol {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  body.page-capabilities .capability-chapter:nth-child(even) {
+    margin-left: 0;
+  }
+}

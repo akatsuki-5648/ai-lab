@@ -1,0 +1,288 @@
+/* メリット・デメリット — 得失を曖昧にしない判断書。 */
+body.page-merit {
+  --merit-paper: #f4f0e7;
+  --merit-ink: #111111;
+  --merit-red: #e44c3f;
+  --merit-soft: #dad3c4;
+  background: var(--merit-paper);
+  color: var(--merit-ink);
+}
+
+body.page-merit .context-canvas {
+  opacity: 0.12;
+  filter: grayscale(1);
+}
+
+body.page-merit .site-header {
+  min-height: 76px;
+  padding: 0 var(--pad);
+  border: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.24);
+  background: linear-gradient(90deg, #111 0 68%, var(--merit-red) 68% 100%);
+  color: #fff;
+}
+
+body.page-merit .brand::after {
+  content: "DECISION / 01";
+  display: inline-block;
+  margin-left: 14px;
+  padding-left: 14px;
+  border-left: 1px solid rgba(255, 255, 255, 0.36);
+  font: 800 9px/1 var(--mono);
+  letter-spacing: 0.16em;
+}
+
+body.page-merit .brand-dot {
+  border-radius: 0;
+  background: var(--merit-red);
+  transform: rotate(45deg);
+}
+
+body.page-merit .nav {
+  align-self: stretch;
+  gap: 0;
+}
+
+body.page-merit .nav a {
+  display: grid;
+  place-items: center;
+  padding: 0 13px;
+  border-left: 1px solid rgba(255, 255, 255, 0.12);
+  color: #fff;
+}
+
+body.page-merit .nav a[aria-current="page"] {
+  background: #fff;
+  color: #111;
+  opacity: 1;
+}
+
+body.page-merit .header-join {
+  padding: 12px 0;
+  border: 0;
+  border-bottom: 2px solid #111;
+  color: #111;
+}
+
+body.page-merit .hero-balance {
+  min-height: 94svh;
+  background: linear-gradient(
+    108deg,
+    var(--merit-paper) 0 61%,
+    var(--merit-red) 61%
+  ) !important;
+  color: var(--merit-ink) !important;
+}
+
+body.page-merit .hero-balance-shell {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(360px, 0.95fr);
+  gap: 5vw;
+  align-items: center;
+}
+
+body.page-merit .hero-balance h1 {
+  max-width: 800px;
+  color: #111;
+  text-shadow: none;
+}
+
+body.page-merit .hero-balance .serif {
+  color: var(--merit-red) !important;
+}
+
+body.page-merit .hero-balance p,
+body.page-merit .hero-balance .section-label {
+  color: #35312c !important;
+}
+
+body.page-merit .hero-balance .subnav a {
+  border-color: #111;
+  color: #111;
+}
+
+body.page-merit .hero-balance .page-visual {
+  left: 0;
+  right: auto;
+  width: 61%;
+  clip-path: polygon(0 0, 100% 0, 74% 100%, 0 100%);
+  opacity: 0.07;
+  filter: grayscale(1) contrast(1.4);
+}
+
+body.page-merit .hero-balance .page-visual::after {
+  background: linear-gradient(90deg, var(--merit-paper), transparent 70%);
+}
+
+body.page-merit .hero-balance-scale {
+  position: relative;
+  z-index: 5;
+  display: grid;
+  grid-template-columns: 1fr 68px 1fr;
+  align-items: center;
+  min-height: 430px;
+}
+
+body.page-merit .hero-balance-scale > div:not(.balance-axis) {
+  min-height: 280px;
+  padding: 26px;
+  border: 2px solid #111;
+  background: var(--merit-paper);
+  box-shadow: 16px 16px 0 rgba(17, 17, 17, 0.12);
+}
+
+body.page-merit .balance-gain {
+  transform: translateY(-28px);
+}
+
+body.page-merit .balance-loss {
+  transform: translateY(28px);
+  background: #111 !important;
+  color: #fff;
+}
+
+body.page-merit .balance-axis {
+  height: 3px;
+  background: #111;
+  transform: rotate(8deg);
+}
+
+body.page-merit .balance-axis::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 20px;
+  height: 20px;
+  border: 3px solid #111;
+  border-radius: 50%;
+  background: var(--merit-red);
+  transform: translate(-50%, -50%);
+}
+
+body.page-merit .section {
+  border-top: 2px solid #111;
+  background: var(--merit-paper);
+}
+
+body.page-merit #benefits {
+  background: #fffdf7;
+}
+
+body.page-merit .benefit-lines {
+  border-top: 1px solid #111;
+}
+
+body.page-merit .benefit-line {
+  border-color: #111;
+  background: transparent;
+}
+
+body.page-merit .benefit-line b:first-child {
+  color: var(--merit-red);
+}
+
+body.page-merit .risk-zone {
+  background: var(--merit-red);
+  color: #111;
+}
+
+body.page-merit .risk-strip,
+body.page-merit .risk {
+  border-color: #111;
+  background: transparent;
+}
+
+body.page-merit .risk:nth-child(even) {
+  background: #111;
+  color: #fff;
+}
+
+body.page-merit #fit {
+  background:
+    linear-gradient(
+      90deg,
+      transparent 49.9%,
+      rgba(17, 17, 17, 0.18) 50%,
+      transparent 50.1%
+    ),
+    var(--merit-paper);
+}
+
+body.page-merit .faq details {
+  border: 0;
+  border-bottom: 1px solid #111;
+  background: transparent;
+}
+
+body.page-merit .site-footer {
+  border-top: 0;
+  background: linear-gradient(120deg, #111 0 72%, var(--merit-red) 72%);
+  color: #fff;
+}
+
+body.page-merit .footer-lead h2 i {
+  color: var(--merit-red);
+}
+
+@media (max-width: 980px) {
+  body.page-merit .nav {
+    background: var(--merit-red);
+  }
+
+  body.page-merit .nav a {
+    display: block;
+    border: 0;
+    padding: 2px 0;
+    color: #111;
+  }
+
+  body.page-merit .nav a[aria-current="page"] {
+    background: transparent;
+    color: #fff;
+  }
+
+  body.page-merit .hero-balance-shell {
+    grid-template-columns: 1fr 0.82fr;
+  }
+}
+
+@media (max-width: 600px) {
+  body.page-merit .site-header {
+    background: #111;
+  }
+
+  body.page-merit .brand::after {
+    display: none;
+  }
+
+  body.page-merit .hero-balance {
+    background: linear-gradient(
+      168deg,
+      var(--merit-paper) 0 72%,
+      var(--merit-red) 72%
+    ) !important;
+  }
+
+  body.page-merit .hero-balance-shell {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+
+  body.page-merit .hero-balance-scale {
+    width: 100%;
+    min-height: 200px;
+    grid-template-columns: 1fr 42px 1fr;
+  }
+
+  body.page-merit .hero-balance-scale > div:not(.balance-axis) {
+    min-height: 154px;
+    padding: 14px;
+    box-shadow: 8px 8px 0 rgba(17, 17, 17, 0.12);
+  }
+
+  body.page-merit #fit {
+    background: var(--merit-paper);
+  }
+}

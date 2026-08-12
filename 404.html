@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, follow" />
+    <title>ページが見つかりません｜AIラボ</title>
+    <meta
+      name="description"
+      content="AIラボ内でお探しのページが見つかりませんでした。トップページまたはAIニュースページから目的の情報へ移動できます。"
+    />
+    <meta name="theme-color" content="#07111f" />
+    <link rel="icon" href="/assets/ai-lab-trinity-logo.png" type="image/png" />
+    <link rel="stylesheet" href="/styles.css?v=20260812-seo" />
+    <style>
+      .not-found {
+        min-height: 100svh;
+        display: grid;
+        place-items: center;
+        padding: clamp(2rem, 8vw, 6rem) 1rem;
+        background:
+          radial-gradient(
+            circle at 22% 18%,
+            rgba(92, 225, 230, 0.18),
+            transparent 30rem
+          ),
+          radial-gradient(
+            circle at 80% 76%,
+            rgba(255, 143, 177, 0.14),
+            transparent 28rem
+          ),
+          #07111f;
+      }
+      .not-found__panel {
+        width: min(48rem, 100%);
+        padding: clamp(2rem, 6vw, 4.5rem);
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        border-radius: 2rem 4.5rem 2rem 4.5rem;
+        background: rgba(7, 17, 31, 0.78);
+        box-shadow: 0 2rem 6rem rgba(0, 0, 0, 0.32);
+        backdrop-filter: blur(18px);
+        text-align: center;
+      }
+      .not-found__logo {
+        width: 5rem;
+        height: 5rem;
+        object-fit: contain;
+      }
+      .not-found__code {
+        margin: 1.25rem 0 0.4rem;
+        color: #73f1f2;
+        font: 700 0.8rem/1.2 var(--mono);
+        letter-spacing: 0.2em;
+      }
+      .not-found h1 {
+        margin: 0;
+        color: #fff;
+        font-size: clamp(2rem, 7vw, 4.4rem);
+        line-height: 1.05;
+      }
+      .not-found p {
+        max-width: 34rem;
+        margin: 1.35rem auto 0;
+        color: rgba(255, 255, 255, 0.74);
+        line-height: 1.9;
+      }
+      .not-found__links {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.8rem;
+        margin-top: 2rem;
+      }
+      .not-found__links a {
+        display: inline-flex;
+        align-items: center;
+        min-height: 3rem;
+        padding: 0.75rem 1.2rem;
+        border-radius: 999px;
+        text-decoration: none;
+      }
+      .not-found__primary {
+        color: #07111f;
+        background: #73f1f2;
+        font-weight: 800;
+      }
+      .not-found__secondary {
+        color: #fff;
+        border: 1px solid rgba(255, 255, 255, 0.28);
+      }
+    </style>
+  </head>
+  <body>
+    <main class="not-found">
+      <section class="not-found__panel" aria-labelledby="not-found-title">
+        <img
+          class="not-found__logo"
+          src="/assets/ai-lab-trinity-logo.png"
+          alt="AIラボ"
+        />
+        <p class="not-found__code">404 / PAGE NOT FOUND</p>
+        <h1 id="not-found-title">このページは<br />見つかりませんでした。</h1>
+        <p>
+          URLが変わったか、ページが移動した可能性があります。AIニュースを読むだけの参加も歓迎しています。下の入口からお戻りください。
+        </p>
+        <nav class="not-found__links" aria-label="404ページからの移動先">
+          <a class="not-found__primary" href="/">AIラボのトップへ</a>
+          <a class="not-found__secondary" href="/news/"
+            >AIニュース15ジャンルを見る</a
+          >
+          <a class="not-found__secondary" href="https://discord.gg/TwGHMrjxb7"
+            >Discordに参加する</a
+          >
+        </nav>
+      </section>
+    </main>
+  </body>
+</html>

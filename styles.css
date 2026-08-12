@@ -1,0 +1,685 @@
+@import url("./styles-08-reference.css");
+
+/* 09 — 一本の文脈曲線
+   08の基礎タイポグラフィとコンテンツ部品だけを継承し、
+   画面上の曲線は canvas.context-canvas が描く一筆に限定する。 */
+
+:root {
+  --ink: #080b11;
+  --paper: #f2efe7;
+  --paper-2: #faf8f2;
+  --line: rgba(8, 11, 17, 0.18);
+  --cyan: #72e6ff;
+  --violet: #7868ff;
+  --coral: #ff745f;
+  --lime: #e4ff72;
+  --muted: #656a72;
+  --action: #ff745f;
+  --header-h: 72px;
+  --mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+}
+
+html:has(body.context-site),
+body.context-site {
+  overflow-x: clip;
+}
+body.context-site {
+  background: var(--paper);
+  color: var(--ink);
+  isolation: isolate;
+}
+body.context-site::before {
+  display: none;
+}
+
+.context-canvas {
+  position: absolute;
+  inset: 0 auto auto 0;
+  width: 100%;
+  pointer-events: none;
+  z-index: 2;
+  opacity: 1;
+}
+main,
+.site-footer {
+  position: relative;
+  z-index: 1;
+}
+main > section > .shell,
+main > section > div,
+.site-footer > div {
+  position: relative;
+  z-index: 3;
+}
+
+.progress {
+  height: 2px;
+  background: linear-gradient(90deg, var(--cyan), var(--violet), var(--coral));
+}
+
+.context-site .site-header {
+  top: 0;
+  min-height: var(--header-h);
+  padding: 14px var(--pad);
+  grid-template-columns: auto 1fr auto;
+  color: #fff;
+  mix-blend-mode: normal;
+  background: linear-gradient(
+    180deg,
+    rgba(8, 11, 17, 0.78),
+    rgba(8, 11, 17, 0.18)
+  );
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(14px) saturate(120%);
+  transition:
+    background 0.35s var(--ease),
+    box-shadow 0.35s var(--ease);
+}
+.context-site .site-header.scrolled {
+  background: rgba(8, 11, 17, 0.94);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.18);
+}
+.context-site .brand {
+  font-size: 15px;
+  letter-spacing: 0.08em;
+}
+.context-site .brand-dot {
+  width: 22px;
+  height: 12px;
+  border: 0;
+  border-radius: 100% 0 100% 0;
+  background: linear-gradient(90deg, var(--cyan), var(--violet));
+  transform: skewX(-24deg);
+  box-shadow: none;
+}
+.context-site .nav {
+  gap: clamp(12px, 1.8vw, 28px);
+}
+.context-site .nav a {
+  font-size: 12px;
+  letter-spacing: 0.02em;
+  opacity: 0.72;
+}
+.context-site .header-join {
+  border: 0;
+  border-radius: 0;
+  padding: 9px 0 7px;
+  border-bottom: 2px solid var(--coral);
+}
+
+.context-site .hero-home {
+  min-height: 100svh;
+  padding: 140px var(--pad) 72px;
+  align-items: center;
+  overflow: hidden;
+  background: #080b11;
+}
+.context-site .hero-media video {
+  opacity: 0.58;
+  transform: scale(1.02);
+}
+.context-site .hero-media::after {
+  background:
+    linear-gradient(
+      90deg,
+      rgba(8, 11, 17, 0.98) 0%,
+      rgba(8, 11, 17, 0.84) 39%,
+      rgba(8, 11, 17, 0.2) 78%
+    ),
+    linear-gradient(0deg, #080b11 0%, transparent 48%);
+}
+.context-site .hero-grid {
+  width: min(1500px, 100%);
+  margin-inline: auto;
+  grid-template-columns: minmax(0, 1.18fr) minmax(250px, 0.42fr);
+  gap: 9vw;
+}
+.context-site h1 {
+  max-width: 980px;
+  font-size: clamp(68px, 10.3vw, 164px);
+  line-height: 0.84;
+  letter-spacing: -0.085em;
+  text-wrap: balance;
+}
+.context-site h1 .serif {
+  color: var(--cyan);
+}
+.context-site .kicker::before {
+  background: var(--coral);
+  box-shadow: 0 0 18px var(--coral);
+}
+.context-site .hero-copy {
+  max-width: 620px;
+  font-size: clamp(17px, 1.45vw, 22px);
+}
+.context-site .hero-side {
+  border: 0;
+  padding: 0 0 0 26px;
+  position: relative;
+}
+.context-site .hero-side::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(var(--cyan), transparent);
+}
+.context-site .pill {
+  border-radius: 0;
+  padding: 12px 16px 10px;
+  border: 0;
+  border-bottom: 1px solid currentColor;
+}
+.context-site .pill.primary {
+  background: var(--coral);
+  color: #080b11;
+  border-bottom-color: var(--coral);
+}
+.context-site .scroll-cue {
+  right: calc(var(--pad) + 4px);
+}
+
+.context-site .ticker {
+  transform: none;
+  width: 100%;
+  margin: 0;
+  background: #080b11;
+  color: rgba(255, 255, 255, 0.72);
+  border-color: rgba(255, 255, 255, 0.14);
+}
+.context-site .ticker span {
+  padding-block: 11px;
+  font-size: 11px;
+}
+.context-site .ticker span::after {
+  color: var(--cyan);
+}
+
+.context-site .section {
+  padding: clamp(105px, 12vw, 184px) 0;
+  border-top: 1px solid var(--line);
+  overflow: visible;
+}
+.context-site .section-label {
+  color: var(--muted);
+  letter-spacing: 0.18em;
+}
+.context-site .display {
+  max-width: 980px;
+}
+.context-site .intro {
+  grid-template-columns: 1.16fr 0.64fr;
+  gap: 10vw;
+}
+.context-site .intro > div:last-child,
+.context-site .intro > p {
+  max-width: 620px;
+}
+
+/* TOPの三入口。ばらまかず、一本の流れに沿って右上へ上がる。 */
+.context-site .gateway {
+  margin-top: 90px;
+  border: 0;
+  gap: 0;
+  background: transparent;
+  align-items: start;
+}
+.context-site .gateway a {
+  min-height: 300px;
+  padding: 28px 28px 26px 0 !important;
+  border: 0;
+  border-top: 1px solid var(--ink);
+  overflow: visible;
+  transition:
+    transform 0.45s var(--ease),
+    color 0.35s;
+}
+.context-site .gateway a:nth-child(1) {
+  transform: translateY(92px);
+}
+.context-site .gateway a:nth-child(2) {
+  transform: translateY(46px);
+}
+.context-site .gateway a:nth-child(3) {
+  transform: none;
+}
+.context-site .gateway a + a {
+  padding-left: 28px !important;
+  border-left: 1px solid var(--line);
+}
+.context-site .gateway a::before {
+  display: none;
+}
+.context-site .gateway a::after {
+  content: "↗";
+  position: absolute;
+  right: 24px;
+  top: 22px;
+  font-size: 28px;
+  color: var(--tone, var(--cyan));
+  transition: transform 0.35s var(--ease);
+}
+.context-site .gateway a:hover {
+  color: #3036b8;
+}
+.context-site .gateway a:hover::after {
+  transform: translate(6px, -6px);
+}
+.context-site .gateway b {
+  max-width: 310px;
+  font-size: clamp(27px, 2.7vw, 45px);
+}
+.context-site .gateway em {
+  max-width: 230px;
+}
+
+.context-site .lab {
+  min-height: 920px;
+  background: #080b11;
+  position: relative;
+}
+.context-site .lab-console {
+  border-radius: 0;
+  background: rgba(255, 255, 255, 0.055);
+  border-color: rgba(255, 255, 255, 0.16);
+  box-shadow: 26px 26px 0 rgba(114, 230, 255, 0.08);
+}
+.context-site .lab-console:hover {
+  transform: none;
+}
+.context-site .conversation {
+  border-radius: 0;
+  background: #111620;
+}
+.context-site .bubble {
+  border-radius: 0;
+}
+.context-site .model-switch button {
+  border-radius: 0;
+}
+
+/* 円軌道を廃止。記事導線を一つの編集列へ戻す。 */
+.context-site .constellation {
+  min-height: auto;
+  background: var(--paper-2);
+}
+.context-site .orbit-stage {
+  height: auto;
+  display: grid;
+  grid-template-columns: minmax(240px, 0.48fr) minmax(0, 1fr);
+  gap: 7vw;
+  margin-top: 80px;
+}
+.context-site .orbit-core {
+  position: sticky;
+  left: auto;
+  top: 120px;
+  width: auto;
+  height: auto;
+  transform: none;
+  border-radius: 0;
+  background: transparent;
+  color: var(--ink);
+  box-shadow: none;
+  display: block;
+  text-align: left;
+  align-self: start;
+}
+.context-site .orbit-core b {
+  font-size: clamp(54px, 7vw, 100px);
+}
+.context-site .orbit-core small {
+  color: var(--violet);
+  letter-spacing: 0.12em;
+}
+.context-site .orbit {
+  position: static;
+  inset: auto;
+  border: 0;
+  border-radius: 0;
+  animation: none;
+  display: grid;
+  grid-column: 2;
+}
+.context-site .orbit:nth-of-type(2) {
+  display: none;
+}
+.context-site .node,
+.context-site .node:nth-child(n) {
+  position: static;
+  width: auto;
+  min-height: 128px;
+  padding: 24px 54px 24px 0;
+  border: 0;
+  border-top: 1px solid var(--line);
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  animation: none;
+  display: grid;
+  grid-template-columns: 130px 1fr;
+  gap: 24px;
+  align-items: center;
+  transition:
+    padding-left 0.35s var(--ease),
+    background 0.35s;
+}
+.context-site .node:hover {
+  padding-left: 18px;
+  background: rgba(114, 230, 255, 0.08);
+}
+.context-site .node b {
+  font-size: clamp(22px, 2.3vw, 36px);
+}
+
+.context-site .manifesto {
+  background: var(--coral);
+}
+.context-site .manifesto blockquote {
+  max-width: 1200px;
+}
+
+.context-site .news-preview,
+.context-site .risk-strip,
+.context-site .triad,
+.context-site .story-rail,
+.context-site .news-grid {
+  border-radius: 0;
+}
+.context-site .news-preview > a,
+.context-site .risk,
+.context-site .triad button,
+.context-site .story-frame,
+.context-site .news-column {
+  border-radius: 0;
+}
+
+.context-site .faq {
+  border-top: 1px solid;
+}
+.context-site .faq details {
+  border-radius: 0;
+  background: transparent;
+}
+.context-site .faq details[open] {
+  background: rgba(255, 255, 255, 0.36);
+}
+
+.context-site .site-footer {
+  border-radius: 0;
+  background: #080b11;
+  padding-top: 120px;
+}
+.context-site .footer-lead h2 i {
+  color: var(--cyan);
+}
+
+/* 下層ページは一枚の証拠画像だけを、主曲線と同じ曲率で切る。 */
+.context-site .page-hero {
+  min-height: 88svh;
+  padding: 150px var(--pad) 86px;
+  align-items: center;
+  background: #0b1019 !important;
+  color: #fff !important;
+  border-bottom: 0;
+  isolation: isolate;
+}
+.context-site .page-hero > div {
+  width: min(1500px, 100%);
+  margin-inline: auto;
+  position: relative;
+  z-index: 4;
+}
+.context-site .page-hero h1 {
+  max-width: min(980px, 72vw);
+  text-shadow: 0 8px 34px rgba(0, 0, 0, 0.32);
+}
+.context-site .page-hero p {
+  max-width: min(720px, 58vw);
+  color: rgba(255, 255, 255, 0.76) !important;
+}
+.context-site .page-hero .section-label {
+  color: rgba(255, 255, 255, 0.58) !important;
+}
+.context-site .page-hero .serif {
+  color: var(--route-accent, var(--cyan)) !important;
+}
+.context-site .page-hero .subnav {
+  max-width: min(720px, 62vw);
+  position: relative;
+  z-index: 5;
+}
+.context-site .page-visual {
+  position: absolute;
+  z-index: -1;
+  right: -4vw;
+  top: 0;
+  width: min(67vw, 1060px);
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+  clip-path: ellipse(73% 110% at 78% 50%);
+}
+.context-site .page-visual img,
+.context-site .page-visual video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.68;
+  filter: saturate(0.9) contrast(1.04);
+}
+.context-site .page-visual::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      90deg,
+      #0b1019 0%,
+      rgba(11, 16, 25, 0.78) 23%,
+      transparent 65%
+    ),
+    linear-gradient(0deg, #0b1019 0%, transparent 38%);
+}
+.context-site.route-merit-demerit {
+  --route-accent: #ff8b79;
+}
+.context-site.route-how-to-use {
+  --route-accent: #72e6ff;
+}
+.context-site.route-what-you-can-do {
+  --route-accent: #e4ff72;
+}
+.context-site.route-ai-comparison {
+  --route-accent: #968bff;
+}
+.context-site.route-stories {
+  --route-accent: #ffb36b;
+}
+.context-site.route-news {
+  --route-accent: #72e6ff;
+}
+
+.context-site .benefit-line,
+.context-site .journey-step,
+.context-site .capability-chapter {
+  border-radius: 0;
+  background: transparent;
+}
+.context-site .capability-chapter::after {
+  color: rgba(114, 230, 255, 0.055);
+}
+.context-site .capability-chapter li {
+  background: rgba(255, 255, 255, 0.42);
+}
+.context-site .preview,
+.context-site .model-panel {
+  border-radius: 0;
+}
+.context-site .builder {
+  background: var(--cyan);
+}
+.context-site .newsroom {
+  background: var(--paper-2);
+}
+
+.curve-stop {
+  scroll-margin-top: 100px;
+}
+.reveal {
+  transform: translateY(18px);
+  transition-duration: 0.72s;
+}
+
+@media (max-width: 980px) {
+  .context-site .site-header {
+    grid-template-columns: auto auto;
+  }
+  .context-site .nav {
+    position: absolute;
+    inset: 0 0 auto 0;
+    width: 100%;
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 13px;
+    padding: 96px 24px 44px;
+    background: #080b11;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(-100%);
+    z-index: 1;
+  }
+  .context-site .nav.open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: none;
+  }
+  .context-site .nav a {
+    font-size: clamp(30px, 8vw, 54px);
+    line-height: 1.08;
+    opacity: 1;
+  }
+  .context-site .hero-grid {
+    grid-template-columns: 1fr;
+  }
+  .context-site .hero-side {
+    display: none;
+  }
+  .context-site .gateway {
+    grid-template-columns: 1fr;
+    margin-top: 62px;
+  }
+  .context-site .gateway a,
+  .context-site .gateway a:nth-child(n) {
+    transform: none;
+    min-height: 190px;
+    padding: 24px 0 !important;
+    border-left: 0;
+  }
+  .context-site .gateway a + a {
+    padding-left: 0 !important;
+  }
+  .context-site .intro {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+  .context-site .orbit-stage {
+    grid-template-columns: 1fr;
+  }
+  .context-site .orbit-core {
+    position: relative;
+    top: auto;
+  }
+  .context-site .orbit {
+    grid-column: 1;
+  }
+  .context-site .page-hero h1 {
+    max-width: 92vw;
+  }
+  .context-site .page-hero p,
+  .context-site .page-hero .subnav {
+    max-width: 72vw;
+  }
+  .context-site .page-visual {
+    width: 82vw;
+    right: -22vw;
+    opacity: 0.72;
+  }
+}
+
+@media (max-width: 600px) {
+  :root {
+    --header-h: 64px;
+  }
+  .context-site .site-header {
+    left: 0;
+    right: 0;
+    padding: 12px 18px;
+  }
+  .context-site .hero-home {
+    padding: 116px 18px 84px;
+    min-height: 102svh;
+  }
+  .context-site h1,
+  .context-site .page-hero h1 {
+    font-size: clamp(55px, 16vw, 76px);
+    max-width: 100%;
+  }
+  .context-site .hero-copy {
+    max-width: 92%;
+    font-size: 16px;
+  }
+  .context-site .hero-actions {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  .context-site .section {
+    padding-block: 96px;
+  }
+  .context-site .gateway a,
+  .context-site .gateway a:nth-child(n) {
+    min-height: 178px;
+  }
+  .context-site .page-hero {
+    padding: 126px 18px 88px;
+    min-height: 92svh;
+  }
+  .context-site .page-hero p,
+  .context-site .page-hero .subnav {
+    max-width: 92%;
+  }
+  .context-site .page-visual {
+    right: -68vw;
+    width: 150vw;
+    opacity: 0.46;
+  }
+  .context-site .node,
+  .context-site .node:nth-child(n) {
+    grid-template-columns: 1fr;
+    gap: 6px;
+    min-height: 112px;
+  }
+  .context-site .footer-lead {
+    padding-bottom: 62px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .context-canvas {
+    opacity: 0.82;
+  }
+  .context-site .gateway a,
+  .context-site .node {
+    transition: none;
+  }
+}
+
+/* ページ固有のヘッダ、Hero、本文、カード、フッターは page-styles/ に分離。
+   styles.css は全ページで共有する可読性、ナビ開閉、Canvas、基本部品だけを担当する。 */

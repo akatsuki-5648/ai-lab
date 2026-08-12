@@ -1,0 +1,322 @@
+/* AI比較 — 同一条件を三つの知性へ通す実験室。 */
+body.page-compare {
+  --compare-cyan: #65ddff;
+  --compare-coral: #ff735e;
+  --compare-violet: #9181ff;
+  --compare-ink: #070910;
+  background: var(--compare-ink);
+  color: #f8f8fb;
+}
+
+body.page-compare .context-canvas {
+  opacity: 0.22;
+  mix-blend-mode: screen;
+}
+
+body.page-compare .site-header {
+  top: 0;
+  min-height: 78px;
+  padding: 0 var(--pad);
+  border: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  background:
+    linear-gradient(
+      90deg,
+      rgba(101, 221, 255, 0.2) 0 33.333%,
+      rgba(255, 115, 94, 0.18) 33.333% 66.666%,
+      rgba(145, 129, 255, 0.2) 66.666%
+    ),
+    #070910;
+  color: #fff;
+}
+
+body.page-compare .brand::after {
+  content: "TRIAD TEST / SAME INPUT";
+  margin-left: 13px;
+  color: rgba(255, 255, 255, 0.56);
+  font: 800 9px/1 var(--mono);
+  letter-spacing: 0.14em;
+}
+
+body.page-compare .brand-dot {
+  width: 24px;
+  height: 8px;
+  border-radius: 0;
+  background: linear-gradient(
+    90deg,
+    var(--compare-cyan) 0 33%,
+    var(--compare-coral) 33% 66%,
+    var(--compare-violet) 66%
+  );
+  transform: none;
+}
+
+body.page-compare .nav {
+  gap: 0;
+}
+
+body.page-compare .nav a {
+  padding: 12px 10px;
+  border-bottom: 2px solid transparent;
+  color: #fff;
+}
+
+body.page-compare .nav a[aria-current="page"] {
+  border-color: var(--compare-violet);
+  color: #fff;
+  opacity: 1;
+}
+
+body.page-compare .header-join {
+  padding: 10px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.54);
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+}
+
+body.page-compare .hero-triad {
+  min-height: 100svh;
+  background: var(--compare-ink) !important;
+}
+
+body.page-compare .hero-triad-shell {
+  display: grid;
+  place-items: center;
+  align-content: center;
+  min-height: calc(100svh - 220px);
+}
+
+body.page-compare .hero-triad-copy {
+  position: relative;
+  z-index: 6;
+  width: min(940px, 78vw);
+  isolation: isolate;
+  text-align: center;
+}
+
+body.page-compare .hero-triad-copy::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: -30px -42px -34px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 42px 124px 42px 42px;
+  background: linear-gradient(
+    118deg,
+    rgba(4, 6, 12, 0.82) 0%,
+    rgba(4, 6, 12, 0.64) 64%,
+    rgba(4, 6, 12, 0.42) 100%
+  );
+  box-shadow:
+    0 30px 90px rgba(0, 0, 0, 0.32),
+    inset 0 1px rgba(255, 255, 255, 0.08);
+  -webkit-backdrop-filter: blur(18px) saturate(116%);
+  backdrop-filter: blur(18px) saturate(116%);
+}
+
+body.page-compare .hero-triad h1 {
+  margin-inline: auto;
+  color: #fff;
+}
+
+body.page-compare .hero-triad .serif {
+  background: linear-gradient(
+    90deg,
+    var(--compare-cyan),
+    var(--compare-coral),
+    var(--compare-violet)
+  );
+  background-clip: text;
+  color: #b8adff !important;
+  -webkit-text-fill-color: #b8adff;
+  text-shadow: 0 0 32px rgba(145, 129, 255, 0.22);
+}
+
+body.page-compare .hero-triad .subnav {
+  justify-content: center;
+  margin-inline: auto;
+}
+
+body.page-compare .hero-triad .page-visual {
+  inset: 0;
+  width: 100%;
+  clip-path: none;
+  opacity: 0.12;
+  filter: grayscale(0.7) contrast(1.2);
+}
+
+body.page-compare .hero-triad .page-visual::after {
+  background: radial-gradient(
+    circle at 50% 50%,
+    transparent 0 18%,
+    var(--compare-ink) 76%
+  );
+}
+
+body.page-compare .hero-triad-field {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+body.page-compare .triad-lane {
+  padding: 132px 22px 24px;
+  border-right: 1px solid rgba(255, 255, 255, 0.14);
+  clip-path: none;
+}
+
+body.page-compare .triad-lane.chatgpt {
+  background: linear-gradient(
+    180deg,
+    rgba(101, 221, 255, 0.24),
+    transparent 58%
+  );
+  color: var(--compare-cyan);
+}
+
+body.page-compare .triad-lane.claude {
+  background: linear-gradient(0deg, rgba(255, 115, 94, 0.22), transparent 62%);
+  color: var(--compare-coral);
+}
+
+body.page-compare .triad-lane.gemini {
+  background: linear-gradient(
+    180deg,
+    rgba(145, 129, 255, 0.22),
+    transparent 66%
+  );
+  color: var(--compare-violet);
+}
+
+body.page-compare .hero-triad-field > i {
+  background: linear-gradient(
+    90deg,
+    var(--compare-cyan),
+    var(--compare-coral),
+    var(--compare-violet)
+  );
+  box-shadow: 0 0 26px rgba(255, 255, 255, 0.24);
+  animation: compare-scan 3.2s ease-in-out infinite alternate;
+}
+
+body.page-compare .section {
+  border-color: rgba(255, 255, 255, 0.14);
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    #090c14;
+  background-size: 48px 48px;
+  color: #fff;
+}
+
+body.page-compare .compare-stage {
+  background-color: #06080d;
+}
+
+body.page-compare .section-label,
+body.page-compare .intro p {
+  color: rgba(255, 255, 255, 0.58);
+}
+
+body.page-compare .triad {
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: #0d111c;
+}
+
+body.page-compare .triad button:nth-child(1) {
+  --model-color: var(--compare-cyan);
+}
+
+body.page-compare .triad button:nth-child(2) {
+  --model-color: var(--compare-coral);
+}
+
+body.page-compare .triad button:nth-child(3) {
+  --model-color: var(--compare-violet);
+}
+
+body.page-compare .model-panel,
+body.page-compare .ledger,
+body.page-compare .benefit-line,
+body.page-compare .faq details {
+  border-color: rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.035);
+  color: #fff;
+}
+
+body.page-compare .site-footer {
+  position: relative;
+  border-top: 0;
+  background: #04050a;
+  color: #fff;
+}
+
+body.page-compare .site-footer::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 7px;
+  background: linear-gradient(
+    90deg,
+    var(--compare-cyan) 0 33.333%,
+    var(--compare-coral) 33.333% 66.666%,
+    var(--compare-violet) 66.666%
+  );
+}
+
+@keyframes compare-scan {
+  from {
+    top: 32%;
+  }
+  to {
+    top: 68%;
+  }
+}
+
+@media (max-width: 980px) {
+  body.page-compare .nav {
+    background:
+      linear-gradient(
+        90deg,
+        rgba(101, 221, 255, 0.18),
+        rgba(255, 115, 94, 0.18),
+        rgba(145, 129, 255, 0.18)
+      ),
+      #070910;
+  }
+}
+
+@media (max-width: 600px) {
+  body.page-compare .brand::after {
+    display: none;
+  }
+
+  body.page-compare .hero-triad-copy {
+    width: 100%;
+  }
+
+  body.page-compare .hero-triad-copy::before {
+    inset: -18px -14px -24px;
+    border-radius: 24px 62px 24px 24px;
+    background: rgba(4, 6, 12, 0.74);
+    -webkit-backdrop-filter: blur(13px) saturate(110%);
+    backdrop-filter: blur(13px) saturate(110%);
+  }
+
+  body.page-compare .hero-triad-field {
+    height: 44%;
+  }
+
+  body.page-compare .triad-lane {
+    padding: 76px 8px 12px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.page-compare .hero-triad-field > i {
+    top: 50%;
+    animation: none;
+  }
+}
