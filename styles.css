@@ -30,24 +30,27 @@ body.context-site {
 }
 
 .footer-notes {
-  display: grid;
-  gap: 6px;
   margin-top: clamp(48px, 5vw, 70px);
-  padding-top: 20px;
-  border-top: 1px solid rgba(255, 255, 255, 0.12);
-  color: rgba(255, 255, 255, 0.52);
-  font-size: clamp(11px, 0.75vw, 12px);
-  line-height: 1.8;
-  letter-spacing: 0.02em;
+  color: rgba(255, 255, 255, 0.34);
+  font: 700 clamp(8px, 0.52vw, 10px) / 1.6 var(--mono);
+  letter-spacing: 0;
+  text-align: center;
+  white-space: nowrap;
 }
 .footer-notes p {
-  max-width: 88ch;
   margin: 0;
 }
 .footer-fine {
   justify-content: center;
-  margin-top: 26px;
+  margin-top: 2px;
+  font-size: clamp(11px, 0.85vw, 13px);
+  letter-spacing: 0.04em;
   text-align: center;
+}
+@media (max-width: 980px) {
+  .footer-notes {
+    white-space: normal;
+  }
 }
 body.context-site::before {
   display: none;
