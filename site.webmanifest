@@ -1,0 +1,23 @@
+{
+  "name": "AIラボ",
+  "short_name": "AIラボ",
+  "description": "AIニュース15ジャンルとChatGPT・Claude・Geminiの情報を読めるDiscordコミュニティ",
+  "lang": "ja",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#07080c",
+  "theme_color": "#07080c",
+  "icons": [
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
