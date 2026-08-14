@@ -707,3 +707,23 @@ main > section > div,
 
 /* ページ固有のヘッダ、Hero、本文、カード、フッターは page-styles/ に分離。
    styles.css は全ページで共有する可読性、ナビ開閉、Canvas、基本部品だけを担当する。 */
+
+/* ═══ ★TOP SEOブロック（2026-08-14） ═══
+   Hikârű「H3はクローラの評価も低い、同じ見た目でH2をかえられるだろ」
+     → タグは h2、見た目だけ小見出し。既存の詩的な h2 は一切触らない
+   Hikârű「左付でかっこわるい、デザインかわってるやん、ちゃんとでざいんもして」
+     → 器を .shell / .intro / .section-label / .reveal に統一（既存と同一）
+       セレクタも既存と同じ .context-site 起点にして詳細度を揃えた       */
+.context-site .seo-block .seo-body{
+  max-width:min(980px,100%);margin-top:clamp(44px,5.5vw,84px)}
+.context-site .seo-block h2.sub{
+  font-size:clamp(1.05rem,1.4vw,1.28rem);font-weight:700;line-height:1.75;
+  letter-spacing:.012em;margin:clamp(40px,4.2vw,66px) 0 .9rem;
+  padding-left:1rem;border-left:2px solid var(--line)}
+.context-site .seo-block h2.sub:first-of-type{margin-top:0}
+.context-site .seo-block .seo-body p{
+  font-size:clamp(.94rem,1.02vw,1rem);line-height:2.12;
+  margin:0;max-width:74ch;color:var(--muted)}
+@media(max-width:900px){
+  .context-site .seo-block .seo-body{margin-top:38px}
+  .context-site .seo-block h2.sub{margin:34px 0 .75rem;font-size:1.03rem}}
