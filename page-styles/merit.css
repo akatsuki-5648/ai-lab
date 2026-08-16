@@ -221,7 +221,7 @@ body.page-merit .site-footer {
   color: #fff;
 }
 
-body.page-merit .footer-lead h2 i {
+body.page-merit .footer-lead h2 i, body.page-merit .footer-lead .lead-title i {
   color: var(--merit-red);
 }
 

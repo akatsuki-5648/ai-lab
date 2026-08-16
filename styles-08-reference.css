@@ -743,13 +743,13 @@ h1 .serif {
   gap: 8vw;
   padding-bottom: 80px;
 }
-.footer-lead h2 {
+.footer-lead h2, .footer-lead .lead-title {
   font-size: clamp(50px, 8vw, 120px);
   line-height: 0.84;
   letter-spacing: -0.075em;
   margin: 0;
 }
-.footer-lead h2 i {
+.footer-lead h2 i, .footer-lead .lead-title i {
   font-family: var(--serif);
   font-weight: 400;
   color: var(--lime);
@@ -936,7 +936,7 @@ h1 .serif {
     monospace;
   color: var(--coral);
 }
-.journey-step h2 {
+.journey-step h2, .journey-step .step-title {
   font-size: clamp(40px, 5.5vw, 80px);
   line-height: 1;
   letter-spacing: -0.055em;
@@ -1166,7 +1166,7 @@ h1 .serif {
     monospace;
   color: var(--coral);
 }
-.capability-chapter h2 {
+.capability-chapter h2, .capability-chapter .chapter-title {
   font-size: clamp(45px, 7vw, 110px);
   line-height: 0.9;
   letter-spacing: -0.07em;
@@ -1228,7 +1228,7 @@ h1 .serif {
   grid-row: span 2;
   min-height: 720px;
 }
-.news-column h2 {
+.news-column h2, .news-column .column-title {
   font-family: var(--serif);
   font-size: clamp(38px, 5vw, 76px);
   line-height: 1.08;

@@ -358,7 +358,7 @@ body.page-home .site-footer {
   background: #040508;
 }
 
-body.page-home .footer-lead h2 i {
+body.page-home .footer-lead h2 i, body.page-home .footer-lead .lead-title i {
   color: var(--home-cyan);
 }
 

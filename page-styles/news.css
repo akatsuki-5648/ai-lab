@@ -432,7 +432,7 @@ body.page-news .site-footer {
   color: var(--news-paper);
 }
 
-body.page-news .footer-lead h2 i {
+body.page-news .footer-lead h2 i, body.page-news .footer-lead .lead-title i {
   color: var(--news-red);
 }
 

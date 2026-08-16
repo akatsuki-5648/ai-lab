@@ -436,7 +436,7 @@ main > section > div,
   background: #080b11;
   padding-top: 120px;
 }
-.context-site .footer-lead h2 i {
+.context-site .footer-lead h2 i, .context-site .footer-lead .lead-title i {
   color: var(--cyan);
 }
 

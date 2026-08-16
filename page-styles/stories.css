@@ -244,7 +244,7 @@ body.page-stories .site-footer {
   color: #fff;
 }
 
-body.page-stories .footer-lead h2 i {
+body.page-stories .footer-lead h2 i, body.page-stories .footer-lead .lead-title i {
   color: var(--story-orange);
 }
 

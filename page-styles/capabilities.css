@@ -219,7 +219,7 @@ body.page-capabilities .site-footer {
   color: #fff;
 }
 
-body.page-capabilities .footer-lead h2 i {
+body.page-capabilities .footer-lead h2 i, body.page-capabilities .footer-lead .lead-title i {
   color: var(--build-lime);
 }
 

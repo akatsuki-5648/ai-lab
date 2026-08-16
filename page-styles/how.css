@@ -229,7 +229,7 @@ body.page-how .site-footer {
   color: #fff;
 }
 
-body.page-how .footer-lead h2 i {
+body.page-how .footer-lead h2 i, body.page-how .footer-lead .lead-title i {
   color: #7ac9ff;
 }
 
